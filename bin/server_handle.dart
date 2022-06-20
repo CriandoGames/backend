@@ -9,7 +9,14 @@ class ServerHandle {
       return Response.ok('Hello, world!');
     });
 
+    //req per Path
     route.get('/ola/<id>', (request, String id) async {
+      return Response.ok('Ola, $id !');
+    });
+
+    //req per Query
+    route.get('/ola', (request) async {
+      String? id = request.url.queryParameters['id'];
       return Response.ok('Ola, $id !');
     });
 
